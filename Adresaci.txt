@@ -1,0 +1,4 @@
+1|1|Gosia|Siemek|12312|sad@asdsa|asddas|
+2|1|Kasia|Siemek|123123|adss@asdads|dsadsads|
+3|2|Szymon|Mickiewicz|13233121|saddas@addsa|sadasada|
+1|1|Lola|Siemek|12312|sad@asdsa|asddas|

@@ -1,0 +1,2 @@
+1|Gosia|Haslo|
+2|Kasia|Haslo|
