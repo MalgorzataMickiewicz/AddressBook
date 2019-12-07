@@ -1,0 +1,238 @@
+# depslib dependency file v1.0
+1567952502 source:c:\kurs programowania\c++\19. programowanie obiektowe\fuzja_obiektowo\main.cpp
+	<iostream>
+	"KsiazkaAdresowa.h"
+
+1567951626 source:c:\kurs programowania\c++\19. programowanie obiektowe\fuzja_obiektowo\uzytkownik.cpp
+	"Uzytkownik.h"
+
+1567951626 c:\kurs programowania\c++\19. programowanie obiektowe\fuzja_obiektowo\uzytkownik.h
+	<iostream>
+
+1567953118 c:\kurs programowania\c++\19. programowanie obiektowe\fuzja_obiektowo\ksiazkaadresowa.h
+	<iostream>
+	<vector>
+	"Uzytkownik.h"
+
+1567953196 source:c:\kurs programowania\c++\19. programowanie obiektowe\fuzja_obiektowo\ksiazkaadresowa.cpp
+	"KsiazkaAdresowa.h"
+	<fstream>
+	<sstream>
+	<windows.h>
+
+1571564678 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\ksiazkaadresowa.cpp
+	"KsiazkaAdresowa.h"
+	"ManageUsers.h"
+
+1571371931 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\uzytkownik.cpp
+	"Uzytkownik.h"
+
+1571562789 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\main.cpp
+	<iostream>
+	"KsiazkaAdresowa.h"
+
+1571564582 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\ksiazkaadresowa.h
+	<iostream>
+	"ManageUsers.h"
+
+1571372638 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\uzytkownik.h
+	<string>
+
+1571561506 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\auxiliarymethods.cpp
+	<iostream>
+	<sstream>
+	"AuxiliaryMethods.h"
+
+1571564898 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\auxiliarymethods.h
+	<iostream>
+	<string>
+
+1571567032 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\manageusers.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"Uzytkownik.h"
+	"ManageFile.h"
+
+1571567032 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\managefile.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Uzytkownik.h"
+	"AuxiliaryMethods.h"
+
+1571565373 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\manageusers.cpp
+	"ManageUsers.h"
+
+1571566704 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\managefile.cpp
+	<cstdlib>
+	"ManageFile.h"
+
+1571032223 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\addressbook.cpp
+	"AddressBook.h"
+	"ManageUsers.h"
+
+1571200052 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\addressbook.h
+	<iostream>
+	"ManageUsers.h"
+
+1571200052 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\user.h
+	<iostream>
+
+1571032224 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo\user.cpp
+	"User.h"
+
+1571557906 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\auxiliarymethods.cpp
+	<iostream>
+	<sstream>
+	"AuxiliaryMethods.h"
+
+1571561298 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\auxiliarymethods.h
+	<iostream>
+	<string>
+
+1571563432 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\ksiazkaadresowa.cpp
+	"KsiazkaAdresowa.h"
+	"ManageUsers.h"
+
+1571802840 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\ksiazkaadresowa.h
+	<iostream>
+	"ManageUsers.h"
+
+1571802840 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\manageusers.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"Uzytkownik.h"
+	"ManageFile.h"
+
+1571369038 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\uzytkownik.h
+	<string>
+
+1571811490 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\managefile.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Uzytkownik.h"
+	"AuxiliaryMethods.h"
+
+1571723885 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\main.cpp
+	<iostream>
+	"KsiazkaAdresowa.h"
+
+1571720313 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\managefile.cpp
+	<cstdlib>
+	"ManageFile.h"
+
+1572325547 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\manageusers.cpp
+	"ManageUsers.h"
+
+1571368331 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\uzytkownik.cpp
+	"Uzytkownik.h"
+
+1572325865 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\addressbook.cpp
+	"AddressBook.h"
+	"ManageUsers.h"
+
+1572325865 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\addressbook.h
+	<iostream>
+	"ManageUsers.h"
+
+1571811489 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\addressee.cpp
+	"Addressee.h"
+
+1571893296 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo — kopia\addressee.h
+	<string>
+
+1571557906 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\auxiliarymethods.cpp
+	<iostream>
+	<sstream>
+	"AuxiliaryMethods.h"
+
+1573572956 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\auxiliarymethods.h
+	<iostream>
+	<string>
+
+1575403224 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\managefile.cpp
+	<cstdlib>
+	"ManageFile.h"
+
+1575403143 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\managefile.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"User.h"
+	"AuxiliaryMethods.h"
+
+1572500565 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\user.h
+	<string>
+
+1575403225 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\manageusers.cpp
+	"ManageUsers.h"
+
+1575403127 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\manageusers.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"User.h"
+	"AddresseeManager.h"
+	"ManageFile.h"
+
+1575722359 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addressbook.cpp
+	"AddressBook.h"
+	"ManageUsers.h"
+	"AddresseeManager.h"
+
+1575722303 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addressbook.h
+	<iostream>
+	"ManageUsers.h"
+	"AddresseeManager.h"
+
+1574700903 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addressee.cpp
+	"Addressee.h"
+
+1574700903 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addressee.h
+	<string>
+
+1575722303 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\main.cpp
+	<iostream>
+	"AddressBook.h"
+
+1572326354 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\user.cpp
+	"User.h"
+
+1575724407 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addresseemanager.cpp
+	"AddresseeManager.h"
+	"User.h"
+
+1575724112 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\addresseemanager.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"Addressee.h"
+	"ManageFileOfAddressee.h"
+	"AuxiliaryMethods.h"
+
+1575724407 c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\managefileofaddressee.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"AuxiliaryMethods.h"
+	"Addressee.h"
+
+1575724514 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\fuzja_obiektowo-wdra¿anie-adresatów\managefileofaddressee.cpp
+	<cstdlib>
+	"ManageFileOfAddressee.h"
+
