@@ -15,8 +15,8 @@ class AddressBook{
     const string NAME_OF_TEMPORARY_FILE_WITH_ADDRESSEE;
 
 public:
-    AddressBook(string nameOfFileWithUsers, string nameOfFileWithAddressee, string nameOfTemporaryFileWithAddressee)
-        : manageUser(nameOfFileWithUsers), NAME_OF_FILE_WITH_ADDRESSEE(nameOfFileWithAddressee), NAME_OF_TEMPORARY_FILE_WITH_ADDRESSEE(nameOfTemporaryFileWithAddressee)
+    AddressBook(string nameOfFileWithUsers, string nameOfFileWithAddressee)
+        : manageUser(nameOfFileWithUsers), NAME_OF_FILE_WITH_ADDRESSEE(nameOfFileWithAddressee)
     {addresseeManager = NULL;
     };
     ~AddressBook(){
@@ -36,6 +36,7 @@ public:
     bool ifUserIsLogg();
     void editAddressee();
     void changePassword();
+    void delateAddressee();
 };
 
 #endif

@@ -15,7 +15,7 @@ void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
         if (isTheFileIsempty() == true) {
             textFile << lineWithDataOfAddressee;
         } else {
-            textFile << endl << lineWithDataOfAddressee ;
+            textFile << lineWithDataOfAddressee << endl ;
         }
         textFile.close();
     } else
@@ -102,20 +102,106 @@ bool ManageFilesOfAddressee::isTheFileIsempty() {
         return false;
 }
 
-void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee) {
+void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int idCurrentAddressee) {
 
-    string lineWithDataOfAddressee = "";
-    textFile.open(nameOfFileWithAddressee.c_str(),ios::out |  ios::app);
+    string lineWithChangedDataOfAddressee = "";
+    string dataOneAddresseeSeparetedWithVerticalLines = "";
+    int contactId;
+    int lineNumber=1;
 
+    lineWithChangedDataOfAddressee = changeDataOfAddresseeToLineSeparatedWithVerticalLine(addressee);
+
+    textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
     if (textFile.good() == true) {
-        lineWithDataOfAddressee = changeDataOfAddresseeToLineSeparatedWithVerticalLine(addressee);
 
-        if (isTheFileIsempty() == true) {
-            textFile << lineWithDataOfAddressee;
-        } else {
-            textFile << endl << lineWithDataOfAddressee ;
+        while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
+            contactId = getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
+
+            if(idCurrentAddressee==contactId) {
+                textFile.close();
+                textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
+                textFile << lineWithChangedDataOfAddressee << endl;
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                for(int i=0; i<lineNumber-1; i++) {
+                    getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
+                }
+            } else {
+                textFile.close();
+                textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
+                textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                for(int j=0; j<lineNumber-1; j++) {
+                    getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
+                }
+            }
         }
         textFile.close();
+        remove("Adresaci.txt");
+        rename("AdresaciTymczasowi.txt", "Adresaci.txt");
     } else
         cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithAddressee << " i zapisac w nim danych." << endl;
 }
+
+int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWithVerticalLines) {
+
+    string oneDataOfAddressee = "";
+    int numberOfOneDataOfAddressee = 1;
+    int contactId=0;
+
+    for (int characterPosition = 0; characterPosition < dataOneAddresseeSeparetedWithVerticalLines.length(); characterPosition++) {
+        if (dataOneAddresseeSeparetedWithVerticalLines[characterPosition] != '|') {
+            oneDataOfAddressee += dataOneAddresseeSeparetedWithVerticalLines[characterPosition];
+        } else {
+            switch(numberOfOneDataOfAddressee) {
+            case 1:
+                contactId=atoi(oneDataOfAddressee.c_str());
+                return contactId;
+            }
+        }
+    }
+}
+
+void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee){
+    string lineWithChangedDataOfAddressee = "";
+    string dataOneAddresseeSeparetedWithVerticalLines = "";
+    int contactId;
+    int lineNumber=1;
+
+    textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+    if (textFile.good() == true) {
+
+        while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
+            contactId = getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
+
+            if(idDelatedAddressee==contactId) {
+                textFile.close();
+                textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                for(int i=0; i<lineNumber-1; i++) {
+                    getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
+                }
+            } else {
+                textFile.close();
+                textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
+                textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                for(int j=0; j<lineNumber-1; j++) {
+                    getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
+                }
+            }
+        }
+        textFile.close();
+        remove("Adresaci.txt");
+        rename("AdresaciTymczasowi.txt", "Adresaci.txt");
+    } else
+        cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithAddressee << " i zapisac w nim danych." << endl;
+}
+

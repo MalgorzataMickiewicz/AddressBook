@@ -24,8 +24,8 @@ class AddresseeManager {
     int getIdNewAddressee();
 
 public:
-    AddresseeManager(string nameOfFileWithAddressee, string nameOfTemporaryFileWithAddressee,int idLoggedUser)
-        : manageFilesOfAddressee(nameOfFileWithAddressee, nameOfTemporaryFileWithAddressee), ID_LOGGED_USER(idLoggedUser) {
+    AddresseeManager(string nameOfFileWithAddressee, int idLoggedUser)
+        : manageFilesOfAddressee(nameOfFileWithAddressee), ID_LOGGED_USER(idLoggedUser) {
     addressees = manageFilesOfAddressee.loadAddresseeFromFile();
     };
     void addAddressee();
@@ -33,11 +33,12 @@ public:
     void findAddresseeUsingName();
     void findAddresseeUsingLastName();
     void editAddressee();
+    void delateAddressee();
     void changeConatctName(string newName, int choosenContactId, Addressee addressee);
-    void changeConatctLastName(string newLastName, int choosenContactId);
-    void changeConatctTelephone(string newTelephone, int choosenContactId);
-    void changeConatctMail(string newEmail, int choosenContactId);
-    void changeConatctAddress(string newAddress, int choosenContactId);
+    void changeConatctLastName(string newLastName, int choosenContactId, Addressee addressee);
+    void changeConatctTelephone(string newTelephone, int choosenContactId, Addressee addressee);
+    void changeConatctMail(string newEmail, int choosenContactId, Addressee addressee);
+    void changeConatctAddress(string newAddress, int choosenContactId, Addressee addressee);
 };
 
 #endif

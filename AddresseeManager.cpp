@@ -163,23 +163,23 @@ void AddresseeManager::editAddressee() {
         string newLastName;
         cout<<"Podaj nowe nazwisko: ";
         cin>>newLastName;
-        changeConatctLastName(newLastName, choosenContactId);
+        changeConatctLastName(newLastName, choosenContactId, addressee);
          addressee.setAddresseeName(newLastName);
     } else if(choice=='3') {
         string newTelephone;
         cout<<"Podaj nowy numer telefonu: ";
         cin>>newTelephone;
-        changeConatctTelephone(newTelephone, choosenContactId);
+        changeConatctTelephone(newTelephone, choosenContactId, addressee);
     } else if(choice=='4') {
         string newEmail;
         cout<<"Podaj nowy adres mailowy: ";
         cin>>newEmail;
-        changeConatctMail(newEmail, choosenContactId);
+        changeConatctMail(newEmail, choosenContactId, addressee);
     } else if(choice=='5') {
         string newAddress;
         cout<<"Podaj nowy adres: ";
         cin>>newAddress;
-        changeConatctAddress(newAddress, choosenContactId);
+        changeConatctAddress(newAddress, choosenContactId, addressee);
     } else if(choice=='6') {
     }
     }
@@ -190,6 +190,7 @@ void AddresseeManager::editAddressee() {
 }
 
 void AddresseeManager::changeConatctName(string newName,int choosenContactId, Addressee addressee){
+    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeName(newName);
@@ -200,46 +201,127 @@ void AddresseeManager::changeConatctName(string newName,int choosenContactId, Ad
             addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
             addressee.setAddresseeMail(addressees[i].getAddresseeMail());
             addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
-            manageFilesOfAddressee.addChangeAddresseeToFile(addressee);
+            idCurrentAddressee=addressees[i].getAddresseeId();
+            manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
     }
 }
 
-void AddresseeManager::changeConatctLastName(string newLastName,int choosenContactId){
+void AddresseeManager::changeConatctLastName(string newLastName,int choosenContactId, Addressee addressee){
+    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeLastname(newLastName);
+            addressee.setAddresseeId(addressees[i].getAddresseeId());
+            addressee.setIdLoggedUser(ID_LOGGED_USER);
+            addressee.setAddresseeName(addressees[i].getAddresseeName());
+            addressee.setAddresseeLastname(newLastName);
+            addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
+            addressee.setAddresseeMail(addressees[i].getAddresseeMail());
+            addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
+            idCurrentAddressee=addressees[i].getAddresseeId();
+            manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
     }
 }
 
-void AddresseeManager::changeConatctTelephone(string newTelephone,int choosenContactId){
+void AddresseeManager::changeConatctTelephone(string newTelephone,int choosenContactId, Addressee addressee){
+    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeTelelphoneNumber(newTelephone);
-            break;
+            addressee.setAddresseeId(addressees[i].getAddresseeId());
+            addressee.setIdLoggedUser(ID_LOGGED_USER);
+            addressee.setAddresseeName(addressees[i].getAddresseeName());
+            addressee.setAddresseeLastname(addressees[i].getAddresseeLastname());
+            addressee.setAddresseeTelelphoneNumber(newTelephone);
+            addressee.setAddresseeMail(addressees[i].getAddresseeMail());
+            addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
+            idCurrentAddressee=addressees[i].getAddresseeId();
+            manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
         }
+            break;
     }
 }
 
-void AddresseeManager::changeConatctMail(string newMail,int choosenContactId){
+void AddresseeManager::changeConatctMail(string newMail,int choosenContactId, Addressee addressee){
+    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeMail(newMail);
+            addressee.setAddresseeId(addressees[i].getAddresseeId());
+            addressee.setIdLoggedUser(ID_LOGGED_USER);
+            addressee.setAddresseeName(addressees[i].getAddresseeName());
+            addressee.setAddresseeLastname(addressees[i].getAddresseeLastname());
+            addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
+            addressee.setAddresseeMail(newMail);
+            addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
+            idCurrentAddressee=addressees[i].getAddresseeId();
+            manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
     }
 }
 
-void AddresseeManager::changeConatctAddress(string newAddress,int choosenContactId){
+void AddresseeManager::changeConatctAddress(string newAddress,int choosenContactId, Addressee addressee){
+    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeAddress(newAddress);
+            addressee.setAddresseeId(addressees[i].getAddresseeId());
+            addressee.setIdLoggedUser(ID_LOGGED_USER);
+            addressee.setAddresseeName(addressees[i].getAddresseeName());
+            addressee.setAddresseeLastname(addressees[i].getAddresseeLastname());
+            addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
+            addressee.setAddresseeMail(addressees[i].getAddresseeMail());
+            addressee.setAddresseeAddress(newAddress);
+            idCurrentAddressee=addressees[i].getAddresseeId();
+            manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
     }
 }
 
+void AddresseeManager::delateAddressee(){
+    Addressee addressee;
+    int choosenContactId;
+    int counter=0;
+    char choice=0;
+    int idDelatedAddressee=0;
+
+    system("cls");
+    cout<<"Podaj numer ID kontaktu, ktory chcesz usunac: ";
+    cin>>choosenContactId;
+
+    for(int i=0; i<addressees.size(); i++) {
+        if(addressees[i].getAddresseeId()==choosenContactId) {
+            idDelatedAddressee=addressees[i].getAddresseeId();
+            counter++;
+            break;
+        }
+    }
+    if(counter==1) {
+        cout<<"Jesli jestes pewien nacisnij 't' "<<endl;
+        cin>>choice;
+
+        if(choice=='t'){
+            for(int j=0; j<addressees.size(); j++) {
+                if(addressees[j].getAddresseeId()==choosenContactId) {
+                    addressees.erase(addressees.begin()+j);
+                }
+            }
+            manageFilesOfAddressee.addChangesToFile(idDelatedAddressee);
+        }
+        else{
+            cout<<"Nie usunales zadnego kontakt"<<endl;
+            system("Pause");
+        }
+}
+ else{
+        cout<<"Kontakt o podanym ID nie znajduje sie w Twojej ksiazce!"<<endl;
+        system("Pause");
+    }
+}
 

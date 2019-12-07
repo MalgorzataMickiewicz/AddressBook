@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 
-    AddressBook addressBook("Uzytkownicy.txt", "Adresaci.txt", "Adresaci_tymczasowi");
+    AddressBook addressBook("Uzytkownicy.txt", "Adresaci.txt");
     int choice=0;
 
     while(1) {
@@ -30,6 +30,7 @@ int main() {
             } else if(choice==4) {
                 addressBook.printAllAddressee();
             } else if(choice==5) {
+                addressBook.delateAddressee();
             } else if(choice==6) {
                 addressBook.editAddressee();
             } else if(choice==7) {

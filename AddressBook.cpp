@@ -32,7 +32,7 @@ int AddressBook::showSecondMenu(int choice){
 void AddressBook::login(){
     manageUser.login();
     if(manageUser.ifUserIsLogg()){
-        addresseeManager = new AddresseeManager(NAME_OF_FILE_WITH_ADDRESSEE, NAME_OF_TEMPORARY_FILE_WITH_ADDRESSEE, manageUser.giveIdLogedUser());
+        addresseeManager = new AddresseeManager(NAME_OF_FILE_WITH_ADDRESSEE, manageUser.giveIdLogedUser());
     }
 }
 
@@ -62,6 +62,10 @@ void AddressBook::printAllAddressee(){
 
 void AddressBook::editAddressee(){
     addresseeManager->editAddressee();
+}
+
+void AddressBook::delateAddressee(){
+    addresseeManager->delateAddressee();
 }
 
 void AddressBook::logoutUser(){

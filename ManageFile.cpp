@@ -98,3 +98,10 @@ User ManageFiles::getDateOfUser(string dataOneUserSeparetedWithVerticalLines){
     }
     return user;
 }
+
+void ManageFiles::addUserWithNewPasswordToFile(User user){
+    string lineWithDateOfUser = "";
+    textFile.open(nameOfFileWithUsers.c_str(),ios::out | ios::app);
+
+
+}
