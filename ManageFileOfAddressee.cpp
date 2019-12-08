@@ -5,8 +5,9 @@
 using namespace std;
 
 void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
+    fstream textFile;
     string lineWithDataOfAddressee = "";
-    textFile.open(nameOfFileWithAddressee.c_str(), ios::app);
+    textFile.open(getNameOfFile().c_str(), ios::app);
 
     if (textFile.good() == true) {
         lineWithDataOfAddressee = changeDataOfAddresseeToLineSeparatedWithVerticalLine(addressee);
@@ -14,11 +15,12 @@ void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
         if (isTheFileIsempty() == true) {
             textFile << lineWithDataOfAddressee;
         } else {
-            textFile << lineWithDataOfAddressee << endl ;
+            textFile << endl <<lineWithDataOfAddressee ;
         }
         textFile.close();
+        idLastAddressee++;
     } else
-        cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithAddressee << " i zapisac w nim danych." << endl;
+        cout << "Nie udalo sie otworzyc pliku " << getNameOfFile() << " i zapisac w nim danych." << endl;
 }
 
 string ManageFilesOfAddressee::changeDataOfAddresseeToLineSeparatedWithVerticalLine(Addressee addressee) {
@@ -36,11 +38,13 @@ string ManageFilesOfAddressee::changeDataOfAddresseeToLineSeparatedWithVerticalL
 }
 
 vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile(int idLogedUser) {
+    fstream textFile;
     Addressee addressee;
     vector <Addressee> addressees;
     string dataOneAddresseeSeparetedWithVerticalLines = "";
+    string dataOfLastAddressee = "";
 
-    textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+    textFile.open(getNameOfFile().c_str(), ios::in);
     if (textFile.good() == true) {
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
             addressee = getDataOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
@@ -48,7 +52,11 @@ vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile(int idLogedUse
                 addressees.push_back(addressee);
             }
         }
+        dataOfLastAddressee = dataOneAddresseeSeparetedWithVerticalLines;
         textFile.close();
+    }
+    if(dataOfLastAddressee!= ""){
+        idLastAddressee = getIdOfAddressee(dataOfLastAddressee);
     }
     return addressees;
 }
@@ -93,6 +101,7 @@ Addressee ManageFilesOfAddressee::getDataOfAddressee(string dataOneAddresseeSepa
 }
 
 int ManageFilesOfAddressee::getIdOfUser(string dataOneAddresseeSeparetedWithVerticalLines) {
+    fstream textFile;
     string oneDataOfAddressee = "";
     int numberOfOneDataOfAddressee = 1;
     int userId = 0;
@@ -114,22 +123,15 @@ int ManageFilesOfAddressee::getIdOfUser(string dataOneAddresseeSeparetedWithVert
     }
 }
 
-bool ManageFilesOfAddressee::isTheFileIsempty() {
-    textFile.seekg(0, ios::end);
-    if (textFile.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int idCurrentAddressee) {
+    fstream textFile;
     string lineWithChangedDataOfAddressee = "";
     string dataOneAddresseeSeparetedWithVerticalLines = "";
     int lineNumber=1;
 
     lineWithChangedDataOfAddressee = changeDataOfAddresseeToLineSeparatedWithVerticalLine(addressee);
 
-    textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+    textFile.open(getNameOfFile().c_str(), ios::in);
     if (textFile.good() == true) {
 
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
@@ -140,7 +142,7 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
                 textFile << lineWithChangedDataOfAddressee << endl;
                 textFile.close();
                 lineNumber++;
-                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                textFile.open(getNameOfFile().c_str(), ios::in);
                 for(int i=0; i<lineNumber-1; i++) {
                     getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
                 }
@@ -150,7 +152,7 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
                 textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
                 textFile.close();
                 lineNumber++;
-                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                textFile.open(getNameOfFile().c_str(), ios::in);
                 for(int j=0; j<lineNumber-1; j++) {
                     getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
                 }
@@ -160,7 +162,7 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
         remove("Adresaci.txt");
         rename("AdresaciTymczasowi.txt", "Adresaci.txt");
     } else
-        cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithAddressee << " i zapisac w nim danych." << endl;
+        cout << "Nie udalo sie otworzyc pliku " << getNameOfFile() << " i zapisac w nim danych." << endl;
 }
 
 int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWithVerticalLines) {
@@ -181,11 +183,12 @@ int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWit
 }
 
 void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
+    fstream textFile;
     string lineWithChangedDataOfAddressee = "";
     string dataOneAddresseeSeparetedWithVerticalLines = "";
     int lineNumber=1;
 
-    textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+    textFile.open(getNameOfFile().c_str(), ios::in);
     if (textFile.good() == true) {
 
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
@@ -195,7 +198,7 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
                 textFile.close();
                 lineNumber++;
-                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                textFile.open(getNameOfFile().c_str(), ios::in);
                 for(int i=0; i<lineNumber-1; i++) {
                     getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
                 }
@@ -205,7 +208,7 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
                 textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
                 textFile.close();
                 lineNumber++;
-                textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
+                textFile.open(getNameOfFile().c_str(), ios::in);
                 for(int j=0; j<lineNumber-1; j++) {
                     getline(textFile, dataOneAddresseeSeparetedWithVerticalLines);
                 }
@@ -215,6 +218,9 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
         remove("Adresaci.txt");
         rename("AdresaciTymczasowi.txt", "Adresaci.txt");
     } else
-        cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithAddressee << " i zapisac w nim danych." << endl;
+        cout << "Nie udalo sie otworzyc pliku " << getNameOfFile() << " i zapisac w nim danych." << endl;
 }
 
+int ManageFilesOfAddressee::getIdOfLastAddressee(){
+    return idLastAddressee;
+}
