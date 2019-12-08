@@ -14,7 +14,7 @@ using namespace std;
 class ManageFiles{
 
     const string nameOfFileWithUsers;
-    fstream textFile;
+    //fstream textFile;
 
     bool isTheFileIsempty();
     string changeDateOfUserToLineSeparatedWithVerticalLine(User user);
@@ -25,7 +25,8 @@ public:
         : nameOfFileWithUsers (NAME_OF_FILE_WITH_USERS) {};
     void addUserToFile(User user);
     vector <User> loadUsersFromFile();
-    void addUserWithNewPasswordToFile(User user);
+    void addUserWithNewPasswordToFile(User user, int idCurrentUser);
+    int getIdOfUser(string dataOneUserSeparetedWithVerticalLines);
 };
 
 #endif

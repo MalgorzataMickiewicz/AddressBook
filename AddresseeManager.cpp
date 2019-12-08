@@ -4,7 +4,6 @@
 using namespace std;
 
 void AddresseeManager::addAddressee() {
-
     Addressee addressee = giveDateOfNewAddressee();
     addressees.push_back(addressee);
     manageFilesOfAddressee.addAddresseeToFile(addressee);
@@ -13,7 +12,6 @@ void AddresseeManager::addAddressee() {
 }
 
 Addressee AddresseeManager::giveDateOfNewAddressee() {
-
     Addressee addressee;
     addressee.setAddresseeId(getIdNewAddressee());
     addressee.setIdLoggedUser(ID_LOGGED_USER);
@@ -70,6 +68,7 @@ void AddresseeManager::printAllAddressee() {
     }
     if(counter==0) {
         cout<<"Nie masz zadnych kontaktow w ksiazce adresowej"<<endl;
+        system("Pause");
     }
 }
 
@@ -126,7 +125,6 @@ void AddresseeManager::findAddresseeUsingLastName() {
 }
 
 void AddresseeManager::editAddressee() {
-
     Addressee addressee;
     int choosenContactId;
     int counter=0;
@@ -143,7 +141,6 @@ void AddresseeManager::editAddressee() {
         }
     }
     if(counter==1) {
-
         cout<<"Wybierz co chcesz edytowac:"<<endl;
         cout<<"1. Imie"<<endl;
         cout<<"2. Nazwisko"<<endl;
@@ -190,7 +187,6 @@ void AddresseeManager::editAddressee() {
 }
 
 void AddresseeManager::changeConatctName(string newName,int choosenContactId, Addressee addressee){
-    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeName(newName);
@@ -201,7 +197,7 @@ void AddresseeManager::changeConatctName(string newName,int choosenContactId, Ad
             addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
             addressee.setAddresseeMail(addressees[i].getAddresseeMail());
             addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
-            idCurrentAddressee=addressees[i].getAddresseeId();
+            int idCurrentAddressee=addressees[i].getAddresseeId();
             manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
@@ -209,7 +205,6 @@ void AddresseeManager::changeConatctName(string newName,int choosenContactId, Ad
 }
 
 void AddresseeManager::changeConatctLastName(string newLastName,int choosenContactId, Addressee addressee){
-    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeLastname(newLastName);
@@ -220,7 +215,7 @@ void AddresseeManager::changeConatctLastName(string newLastName,int choosenConta
             addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
             addressee.setAddresseeMail(addressees[i].getAddresseeMail());
             addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
-            idCurrentAddressee=addressees[i].getAddresseeId();
+            int idCurrentAddressee=addressees[i].getAddresseeId();
             manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
@@ -228,7 +223,6 @@ void AddresseeManager::changeConatctLastName(string newLastName,int choosenConta
 }
 
 void AddresseeManager::changeConatctTelephone(string newTelephone,int choosenContactId, Addressee addressee){
-    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeTelelphoneNumber(newTelephone);
@@ -239,7 +233,7 @@ void AddresseeManager::changeConatctTelephone(string newTelephone,int choosenCon
             addressee.setAddresseeTelelphoneNumber(newTelephone);
             addressee.setAddresseeMail(addressees[i].getAddresseeMail());
             addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
-            idCurrentAddressee=addressees[i].getAddresseeId();
+            int idCurrentAddressee=addressees[i].getAddresseeId();
             manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
         }
             break;
@@ -247,7 +241,6 @@ void AddresseeManager::changeConatctTelephone(string newTelephone,int choosenCon
 }
 
 void AddresseeManager::changeConatctMail(string newMail,int choosenContactId, Addressee addressee){
-    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeMail(newMail);
@@ -258,7 +251,7 @@ void AddresseeManager::changeConatctMail(string newMail,int choosenContactId, Ad
             addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
             addressee.setAddresseeMail(newMail);
             addressee.setAddresseeAddress(addressees[i].getAddresseeAddress());
-            idCurrentAddressee=addressees[i].getAddresseeId();
+            int idCurrentAddressee=addressees[i].getAddresseeId();
             manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
@@ -266,7 +259,6 @@ void AddresseeManager::changeConatctMail(string newMail,int choosenContactId, Ad
 }
 
 void AddresseeManager::changeConatctAddress(string newAddress,int choosenContactId, Addressee addressee){
-    int idCurrentAddressee;
     for(int i=0; i<addressees.size(); i++) {
         if(addressees[i].getAddresseeId()==choosenContactId) {
             addressees[i].setAddresseeAddress(newAddress);
@@ -277,7 +269,7 @@ void AddresseeManager::changeConatctAddress(string newAddress,int choosenContact
             addressee.setAddresseeTelelphoneNumber(addressees[i].getAddresseeTelephoneNumber());
             addressee.setAddresseeMail(addressees[i].getAddresseeMail());
             addressee.setAddresseeAddress(newAddress);
-            idCurrentAddressee=addressees[i].getAddresseeId();
+            int idCurrentAddressee=addressees[i].getAddresseeId();
             manageFilesOfAddressee.addChangeAddresseeToFile(addressee, idCurrentAddressee);
             break;
         }
@@ -302,6 +294,7 @@ void AddresseeManager::delateAddressee(){
             break;
         }
     }
+
     if(counter==1) {
         cout<<"Jesli jestes pewien nacisnij 't' "<<endl;
         cin>>choice;

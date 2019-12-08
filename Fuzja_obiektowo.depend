@@ -236,3 +236,77 @@
 	<cstdlib>
 	"ManageFileOfAddressee.h"
 
+1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.cpp
+	"Addressee.h"
+
+1575726612 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.h
+	<string>
+
+1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\auxiliarymethods.cpp
+	<iostream>
+	<sstream>
+	"AuxiliaryMethods.h"
+
+1575399254 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\auxiliarymethods.h
+	<iostream>
+	<string>
+
+1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.cpp
+	"ManageUsers.h"
+
+1575726612 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"User.h"
+	"AddresseeManager.h"
+	"ManageFile.h"
+
+1575399254 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.h
+	<string>
+
+1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addresseemanager.h
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<windows.h>
+	"Addressee.h"
+	"ManageFileOfAddressee.h"
+	"AuxiliaryMethods.h"
+
+1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefileofaddressee.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"AuxiliaryMethods.h"
+	"Addressee.h"
+
+1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefile.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"User.h"
+	"AuxiliaryMethods.h"
+
+1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.cpp
+	"User.h"
+
+1575726689 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressbook.cpp
+	"AddressBook.h"
+	"ManageUsers.h"
+	"AddresseeManager.h"
+
+1575726689 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressbook.h
+	<iostream>
+	"ManageUsers.h"
+	"AddresseeManager.h"
+
+1575726689 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\main.cpp
+	<iostream>
+	"AddressBook.h"
+

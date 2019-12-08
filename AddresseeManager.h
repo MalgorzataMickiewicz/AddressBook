@@ -26,7 +26,7 @@ class AddresseeManager {
 public:
     AddresseeManager(string nameOfFileWithAddressee, int idLoggedUser)
         : manageFilesOfAddressee(nameOfFileWithAddressee), ID_LOGGED_USER(idLoggedUser) {
-    addressees = manageFilesOfAddressee.loadAddresseeFromFile();
+    addressees = manageFilesOfAddressee.loadAddresseeFromFile(ID_LOGGED_USER);
     };
     void addAddressee();
     void printAllAddressee();

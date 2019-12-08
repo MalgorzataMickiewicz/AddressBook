@@ -33,8 +33,9 @@ public:
     void addAddresseeToFile(Addressee addressee);
     void addChangeAddresseeToFile(Addressee addressee, int idCurrentAddressee);
     void addChangesToFile(int idDelatedAddressee);
-    vector <Addressee> loadAddresseeFromFile();
+    vector <Addressee> loadAddresseeFromFile(int idLogedUser);
     int getIdOfAddressee(string dataOneAddresseeSeparetedWithVerticalLines);
+    int getIdOfUser(string dataOneAddresseeSeparetedWithVerticalLines);
 };
 
 #endif

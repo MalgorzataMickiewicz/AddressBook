@@ -5,7 +5,6 @@
 using namespace std;
 
 void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
-
     string lineWithDataOfAddressee = "";
     textFile.open(nameOfFileWithAddressee.c_str(), ios::app);
 
@@ -36,18 +35,18 @@ string ManageFilesOfAddressee::changeDataOfAddresseeToLineSeparatedWithVerticalL
     return lineWithDataOfAddressee;
 }
 
-vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile() {
-
+vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile(int idLogedUser) {
     Addressee addressee;
     vector <Addressee> addressees;
     string dataOneAddresseeSeparetedWithVerticalLines = "";
 
     textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
-
     if (textFile.good() == true) {
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
             addressee = getDataOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
-            addressees.push_back(addressee);
+            if(idLogedUser==getIdOfUser(dataOneAddresseeSeparetedWithVerticalLines)) {
+                addressees.push_back(addressee);
+            }
         }
         textFile.close();
     }
@@ -93,8 +92,29 @@ Addressee ManageFilesOfAddressee::getDataOfAddressee(string dataOneAddresseeSepa
     return addressee;
 }
 
-bool ManageFilesOfAddressee::isTheFileIsempty() {
+int ManageFilesOfAddressee::getIdOfUser(string dataOneAddresseeSeparetedWithVerticalLines) {
+    string oneDataOfAddressee = "";
+    int numberOfOneDataOfAddressee = 1;
+    int userId = 0;
 
+    for (int characterPosition = 0; characterPosition < dataOneAddresseeSeparetedWithVerticalLines.length(); characterPosition++) {
+        if (dataOneAddresseeSeparetedWithVerticalLines[characterPosition] != '|') {
+            oneDataOfAddressee += dataOneAddresseeSeparetedWithVerticalLines[characterPosition];
+        } else {
+            switch(numberOfOneDataOfAddressee) {
+            case 1:
+                numberOfOneDataOfAddressee++;
+                oneDataOfAddressee= "";
+                break;
+            case 2:
+                userId=atoi(oneDataOfAddressee.c_str());
+                return userId;
+            }
+        }
+    }
+}
+
+bool ManageFilesOfAddressee::isTheFileIsempty() {
     textFile.seekg(0, ios::end);
     if (textFile.tellg() == 0)
         return true;
@@ -103,10 +123,8 @@ bool ManageFilesOfAddressee::isTheFileIsempty() {
 }
 
 void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int idCurrentAddressee) {
-
     string lineWithChangedDataOfAddressee = "";
     string dataOneAddresseeSeparetedWithVerticalLines = "";
-    int contactId;
     int lineNumber=1;
 
     lineWithChangedDataOfAddressee = changeDataOfAddresseeToLineSeparatedWithVerticalLine(addressee);
@@ -115,9 +133,8 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
     if (textFile.good() == true) {
 
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
-            contactId = getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
 
-            if(idCurrentAddressee==contactId) {
+            if(idCurrentAddressee==getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines)) {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
                 textFile << lineWithChangedDataOfAddressee << endl;
@@ -147,10 +164,8 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
 }
 
 int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWithVerticalLines) {
-
     string oneDataOfAddressee = "";
     int numberOfOneDataOfAddressee = 1;
-    int contactId=0;
 
     for (int characterPosition = 0; characterPosition < dataOneAddresseeSeparetedWithVerticalLines.length(); characterPosition++) {
         if (dataOneAddresseeSeparetedWithVerticalLines[characterPosition] != '|') {
@@ -158,26 +173,24 @@ int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWit
         } else {
             switch(numberOfOneDataOfAddressee) {
             case 1:
-                contactId=atoi(oneDataOfAddressee.c_str());
+                int contactId=atoi(oneDataOfAddressee.c_str());
                 return contactId;
             }
         }
     }
 }
 
-void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee){
+void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
     string lineWithChangedDataOfAddressee = "";
     string dataOneAddresseeSeparetedWithVerticalLines = "";
-    int contactId;
     int lineNumber=1;
 
     textFile.open(nameOfFileWithAddressee.c_str(), ios::in);
     if (textFile.good() == true) {
 
         while (getline(textFile, dataOneAddresseeSeparetedWithVerticalLines)) {
-            contactId = getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines);
 
-            if(idDelatedAddressee==contactId) {
+            if(idDelatedAddressee==getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines)) {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
                 textFile.close();

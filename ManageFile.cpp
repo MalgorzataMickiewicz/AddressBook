@@ -5,8 +5,8 @@
 using namespace std;
 
 void ManageFiles::addUserToFile(User user){
-
     string lineWithDateOfUser = "";
+    fstream textFile;
     textFile.open(nameOfFileWithUsers.c_str(), ios::app);
 
     if (textFile.good() == true)
@@ -29,7 +29,7 @@ void ManageFiles::addUserToFile(User user){
 }
 
 bool ManageFiles::isTheFileIsempty(){
-
+    fstream textFile;
     textFile.seekg(0, ios::end);
     if (textFile.tellg() == 0)
         return true;
@@ -39,7 +39,6 @@ bool ManageFiles::isTheFileIsempty(){
 
  string ManageFiles::changeDateOfUserToLineSeparatedWithVerticalLine(User user){
  string lineWithDateOfUser = "";
-
     lineWithDateOfUser += AuxiliaryMethods::conversionIntToString(user.getUserId())+ '|';
     lineWithDateOfUser += user.getUserName() + '|';
     lineWithDateOfUser += user.getUserPassword() + '|';
@@ -48,7 +47,7 @@ bool ManageFiles::isTheFileIsempty(){
 }
 
 vector <User> ManageFiles::loadUsersFromFile(){
-
+    fstream textFile;
     User user;
     vector <User> users;
     string dataOneUserSeparetedWithVerticalLines = "";
@@ -99,9 +98,60 @@ User ManageFiles::getDateOfUser(string dataOneUserSeparetedWithVerticalLines){
     return user;
 }
 
-void ManageFiles::addUserWithNewPasswordToFile(User user){
-    string lineWithDateOfUser = "";
-    textFile.open(nameOfFileWithUsers.c_str(),ios::out | ios::app);
+void ManageFiles::addUserWithNewPasswordToFile(User user, int idCurrentUser){
+    fstream textFile;
+    string lineWithChangedDateOfUser = "";
+    string dataOneUserSeparetedWithVerticalLines = "";
+    int lineNumber=1;
+    lineWithChangedDateOfUser = changeDateOfUserToLineSeparatedWithVerticalLine(user);
 
+    textFile.open(nameOfFileWithUsers.c_str(), ios::in);
+    if (textFile.good() == true) {
 
+        while (getline(textFile, dataOneUserSeparetedWithVerticalLines)) {
+
+            if(idCurrentUser==getIdOfUser(dataOneUserSeparetedWithVerticalLines)) {
+                textFile.close();
+                textFile.open("UzytkownicyTymczasowi.txt",ios::out | ios::app);
+                textFile << lineWithChangedDateOfUser << endl;
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithUsers.c_str(), ios::in);
+                for(int i=0; i<lineNumber-1; i++) {
+                    getline(textFile, dataOneUserSeparetedWithVerticalLines);
+                }
+            } else {
+                textFile.close();
+                textFile.open("UzytkownicyTymczasowi.txt",ios::out | ios::app);
+                textFile << dataOneUserSeparetedWithVerticalLines << endl;
+                textFile.close();
+                lineNumber++;
+                textFile.open(nameOfFileWithUsers.c_str(), ios::in);
+                for(int j=0; j<lineNumber-1; j++) {
+                    getline(textFile, dataOneUserSeparetedWithVerticalLines);
+                }
+            }
+        }
+        textFile.close();
+        remove("Uzytkownicy.txt");
+        rename("UzytkownicyTymczasowi.txt", "Uzytkownicy.txt");
+    } else
+        cout << "Nie udalo sie otworzyc pliku " << nameOfFileWithUsers << " i zapisac w nim danych." << endl;
+}
+
+int ManageFiles::getIdOfUser(string dataOneUserSeparetedWithVerticalLines) {
+    string oneDataOfUser = "";
+    int numberOfOneDataOfUser = 1;
+
+    for (int characterPosition = 0; characterPosition < dataOneUserSeparetedWithVerticalLines.length(); characterPosition++) {
+        if (dataOneUserSeparetedWithVerticalLines[characterPosition] != '|') {
+            oneDataOfUser += dataOneUserSeparetedWithVerticalLines[characterPosition];
+        } else {
+            switch(numberOfOneDataOfUser) {
+            case 1:
+                int userId=atoi(oneDataOfUser.c_str());
+                return userId;
+            }
+        }
+    }
 }
