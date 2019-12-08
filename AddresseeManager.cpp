@@ -13,7 +13,7 @@ void AddresseeManager::addAddressee() {
 
 Addressee AddresseeManager::giveDateOfNewAddressee() {
     Addressee addressee;
-    addressee.setAddresseeId(getIdNewAddressee());
+    addressee.setAddresseeId(manageFilesOfAddressee.getIdOfLastAddressee() + 1 );
     addressee.setIdLoggedUser(ID_LOGGED_USER);
 
     system("cls");

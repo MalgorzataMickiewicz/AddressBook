@@ -24,10 +24,11 @@ class AddresseeManager {
     int getIdNewAddressee();
 
 public:
-    AddresseeManager(string nameOfFileWithAddressee, int idLoggedUser)
-        : manageFilesOfAddressee(nameOfFileWithAddressee), ID_LOGGED_USER(idLoggedUser) {
+    AddresseeManager(string nameOfFile, int idLoggedUser)
+        : manageFilesOfAddressee(nameOfFile), ID_LOGGED_USER(idLoggedUser) {
     addressees = manageFilesOfAddressee.loadAddresseeFromFile(ID_LOGGED_USER);
     };
+
     void addAddressee();
     void printAllAddressee();
     void findAddresseeUsingName();
