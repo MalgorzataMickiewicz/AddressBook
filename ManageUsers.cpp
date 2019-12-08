@@ -3,7 +3,6 @@
 using namespace std;
 
 void ManageUsers::registerUser() {
-
     User user = giveDateOfNewUser();
     users.push_back(user);
     manageFiles.addUserToFile(user);
@@ -12,7 +11,6 @@ void ManageUsers::registerUser() {
 }
 
 User ManageUsers::giveDateOfNewUser() {
-
     User user;
     user.setUserId(getIdNewUser());
 
@@ -40,7 +38,6 @@ int ManageUsers::getIdNewUser() {
 }
 
 bool ManageUsers::checkExistingOfName(string nameOfUser) {
-
     for(int i=0; i<users.size(); i++) {
         if(users[i].getUserName()==nameOfUser) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
@@ -51,7 +48,6 @@ bool ManageUsers::checkExistingOfName(string nameOfUser) {
 }
 
 void ManageUsers::printAllUsers() {
-
     for(int i=0; i<users.size(); i++) {
         cout<<users[i].getUserId()<<endl;
         cout<<users[i].getUserName()<<endl;
@@ -113,7 +109,6 @@ void ManageUsers::logoutUser(){
 }
 
 void ManageUsers::changePassword(){
-
     string password;
     cout<<"Podaj nowe haslo: ";
     cin>>password;
@@ -121,9 +116,7 @@ void ManageUsers::changePassword(){
 }
 
 void ManageUsers::addNewPasswordToVector(string password){
-
     User user;
-
     for(int i=0; i<users.size(); i++) {
         if(users[i].getUserId()==idLogedUser) {
             users[i].setUserPassword(password);
@@ -132,7 +125,8 @@ void ManageUsers::addNewPasswordToVector(string password){
             user.setUserName(users[i].getUserName());
             cout<<"Haslo zostalo zmienione"<<endl;
             Sleep(1000);
-           // manageFiles.addUserWithNewPasswordToFile(user);
+            int idCurrentUser=users[i].getUserId();
+            manageFiles.addUserWithNewPasswordToFile(user, idCurrentUser);
         }
     }
 }
