@@ -46,6 +46,8 @@
 		<Unit filename="ManageFileOfAddressee.h" />
 		<Unit filename="ManageUsers.cpp" />
 		<Unit filename="ManageUsers.h" />
+		<Unit filename="TextFile.cpp" />
+		<Unit filename="TextFile.h" />
 		<Unit filename="User.cpp" />
 		<Unit filename="User.h" />
 		<Unit filename="main.cpp" />
