@@ -12,7 +12,6 @@ class AddressBook{
     ManageUsers manageUser; //tworzymy obiekt klasy ManageUser. W klasie ManageUser mamy metody, z ktorych chcemy skorzystac
     AddresseeManager *addresseeManager;
     const string NAME_OF_FILE_WITH_ADDRESSEE;
-    const string NAME_OF_TEMPORARY_FILE_WITH_ADDRESSEE;
 
 public:
     AddressBook(string nameOfFileWithUsers, string nameOfFileWithAddressee)

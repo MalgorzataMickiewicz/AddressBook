@@ -236,10 +236,10 @@
 	<cstdlib>
 	"ManageFileOfAddressee.h"
 
-1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.cpp
+1575811059 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.cpp
 	"Addressee.h"
 
-1575726612 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.h
+1575811059 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressee.h
 	<string>
 
 1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\auxiliarymethods.cpp
@@ -251,10 +251,10 @@
 	<iostream>
 	<string>
 
-1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.cpp
+1575811059 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.cpp
 	"ManageUsers.h"
 
-1575726612 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.h
+1575811059 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\manageusers.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -264,10 +264,10 @@
 	"AddresseeManager.h"
 	"ManageFile.h"
 
-1575399254 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.h
+1575811059 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.h
 	<string>
 
-1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addresseemanager.h
+1576409725 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addresseemanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -277,23 +277,25 @@
 	"ManageFileOfAddressee.h"
 	"AuxiliaryMethods.h"
 
-1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefileofaddressee.h
+1576409725 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefileofaddressee.h
 	<iostream>
 	<fstream>
 	<vector>
 	<cstdlib>
 	"AuxiliaryMethods.h"
 	"Addressee.h"
+	"TextFile.h"
 
-1575802267 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefile.h
+1575811271 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefile.h
 	<iostream>
 	<fstream>
 	<vector>
 	<cstdlib>
 	"User.h"
 	"AuxiliaryMethods.h"
+	"TextFile.h"
 
-1575726612 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.cpp
+1575811059 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\user.cpp
 	"User.h"
 
 1575726689 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressbook.cpp
@@ -301,12 +303,23 @@
 	"ManageUsers.h"
 	"AddresseeManager.h"
 
-1575726689 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressbook.h
+1576410112 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\addressbook.h
 	<iostream>
 	"ManageUsers.h"
 	"AddresseeManager.h"
 
-1575726689 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\main.cpp
+1575811059 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\main.cpp
 	<iostream>
 	"AddressBook.h"
+
+1575811271 c:\kurs_programowania\c++\19.programowanie_obiektowe\git\textfile.h
+	<iostream>
+	<fstream>
+
+1575811271 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\managefile.cpp
+	<cstdlib>
+	"ManageFile.h"
+
+1575811271 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\git\textfile.cpp
+	"TextFile.h"
 

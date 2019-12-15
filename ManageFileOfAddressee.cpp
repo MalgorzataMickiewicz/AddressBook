@@ -15,7 +15,7 @@ void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
         if (isTheFileIsempty() == true) {
             textFile << lineWithDataOfAddressee;
         } else {
-            textFile << endl <<lineWithDataOfAddressee ;
+            textFile <<lineWithDataOfAddressee ;
         }
         textFile.close();
         idLastAddressee++;
@@ -37,7 +37,7 @@ string ManageFilesOfAddressee::changeDataOfAddresseeToLineSeparatedWithVerticalL
     return lineWithDataOfAddressee;
 }
 
-vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile(int idLogedUser) {
+vector <Addressee> ManageFilesOfAddressee::loadAddresseeFromFile(int idLogedUser) {
     fstream textFile;
     Addressee addressee;
     vector <Addressee> addressees;
@@ -51,8 +51,8 @@ vector <Addressee> ManageFilesOfAddressee:: loadAddresseeFromFile(int idLogedUse
             if(idLogedUser==getIdOfUser(dataOneAddresseeSeparetedWithVerticalLines)) {
                 addressees.push_back(addressee);
             }
+            dataOfLastAddressee = dataOneAddresseeSeparetedWithVerticalLines;
         }
-        dataOfLastAddressee = dataOneAddresseeSeparetedWithVerticalLines;
         textFile.close();
     }
     if(dataOfLastAddressee!= ""){
@@ -183,6 +183,7 @@ int ManageFilesOfAddressee::getIdOfAddressee(string dataOneAddresseeSeparetedWit
 }
 
 void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
+    string dataOfLastAddressee = "";
     fstream textFile;
     string lineWithChangedDataOfAddressee = "";
     string dataOneAddresseeSeparetedWithVerticalLines = "";
@@ -206,6 +207,7 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
                 textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
+                dataOfLastAddressee = dataOneAddresseeSeparetedWithVerticalLines;
                 textFile.close();
                 lineNumber++;
                 textFile.open(getNameOfFile().c_str(), ios::in);
@@ -214,6 +216,7 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
                 }
             }
         }
+        idLastAddressee=getIdOfAddressee(dataOfLastAddressee);
         textFile.close();
         remove("Adresaci.txt");
         rename("AdresaciTymczasowi.txt", "Adresaci.txt");
