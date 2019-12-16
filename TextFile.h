@@ -1,3 +1,4 @@
+
 #ifndef TEXTFILE_H
 #define TEXTFILE_H
 
@@ -16,6 +17,7 @@ public:
     return NAME_OF_FILE;}
 
     bool isTheFileIsempty();
+    bool isTheTemporaryFileIsempty();
 };
 
 #endif

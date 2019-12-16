@@ -1,4 +1,5 @@
-1|1|Gosia|Siemek|12312|sad@asdsa|asddas|
-2|1|Kasia|Siemek|123123|adss@asdads|dsadsads|
-3|2|Szymon|Mickiewicz|13233121|saddas@addsa|sadasada|
-1|1|Lola|Siemek|12312|sad@asdsa|asddas|
+3|2|Ania|Mickiewicz|3212|adsas|sad|
+4|2|Michal|Mickiewicz|3212|adsas|sad|
+5|1|Mariusz|Kalamaga|3213232|asdas@aadsdas|asadda|
+6|1|Ania|Siemek|31132|asadd|adsads|
+7|1|MArta|Nowakasdasd|asddaad|ads|ads|

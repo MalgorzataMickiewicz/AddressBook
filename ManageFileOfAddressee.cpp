@@ -15,7 +15,7 @@ void ManageFilesOfAddressee::addAddresseeToFile(Addressee addressee) {
         if (isTheFileIsempty() == true) {
             textFile << lineWithDataOfAddressee;
         } else {
-            textFile <<lineWithDataOfAddressee ;
+            textFile << endl << lineWithDataOfAddressee ;
         }
         textFile.close();
         idLastAddressee++;
@@ -55,7 +55,7 @@ vector <Addressee> ManageFilesOfAddressee::loadAddresseeFromFile(int idLogedUser
         }
         textFile.close();
     }
-    if(dataOfLastAddressee!= ""){
+    if(dataOfLastAddressee!= "") {
         idLastAddressee = getIdOfAddressee(dataOfLastAddressee);
     }
     return addressees;
@@ -139,7 +139,11 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
             if(idCurrentAddressee==getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines)) {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
-                textFile << lineWithChangedDataOfAddressee << endl;
+                if (isTheFileIsempty() == true) {
+                    textFile << dataOneAddresseeSeparetedWithVerticalLines;
+                } else {
+                    textFile << endl << dataOneAddresseeSeparetedWithVerticalLines ;
+                }
                 textFile.close();
                 lineNumber++;
                 textFile.open(getNameOfFile().c_str(), ios::in);
@@ -149,7 +153,11 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
             } else {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
-                textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
+                if (isTheTemporaryFileIsempty() == true) {
+                    textFile << dataOneAddresseeSeparetedWithVerticalLines;
+                } else {
+                    textFile << endl << dataOneAddresseeSeparetedWithVerticalLines ;
+                }
                 textFile.close();
                 lineNumber++;
                 textFile.open(getNameOfFile().c_str(), ios::in);
@@ -206,7 +214,12 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
             } else {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
-                textFile << dataOneAddresseeSeparetedWithVerticalLines << endl;
+
+                if (isTheTemporaryFileIsempty() == true) {
+                    textFile << dataOneAddresseeSeparetedWithVerticalLines;
+                } else {
+                    textFile << endl << dataOneAddresseeSeparetedWithVerticalLines ;
+                }
                 dataOfLastAddressee = dataOneAddresseeSeparetedWithVerticalLines;
                 textFile.close();
                 lineNumber++;
@@ -224,6 +237,6 @@ void ManageFilesOfAddressee::addChangesToFile(int idDelatedAddressee) {
         cout << "Nie udalo sie otworzyc pliku " << getNameOfFile() << " i zapisac w nim danych." << endl;
 }
 
-int ManageFilesOfAddressee::getIdOfLastAddressee(){
+int ManageFilesOfAddressee::getIdOfLastAddressee() {
     return idLastAddressee;
 }
