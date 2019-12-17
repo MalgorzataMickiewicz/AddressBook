@@ -139,10 +139,10 @@ void ManageFilesOfAddressee::addChangeAddresseeToFile(Addressee addressee, int i
             if(idCurrentAddressee==getIdOfAddressee(dataOneAddresseeSeparetedWithVerticalLines)) {
                 textFile.close();
                 textFile.open("AdresaciTymczasowi.txt",ios::out | ios::app);
-                if (isTheFileIsempty() == true) {
-                    textFile << dataOneAddresseeSeparetedWithVerticalLines;
+                if (isTheTemporaryFileIsempty() == true) {
+                    textFile << lineWithChangedDataOfAddressee;
                 } else {
-                    textFile << endl << dataOneAddresseeSeparetedWithVerticalLines ;
+                    textFile << endl << lineWithChangedDataOfAddressee;
                 }
                 textFile.close();
                 lineNumber++;
